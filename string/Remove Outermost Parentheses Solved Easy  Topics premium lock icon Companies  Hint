@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        int size = s.size();
+        string res = "";
+        int count = 0;
+        for (auto s1 : s) {
+            if (s1 == '(')
+                count += 1;
+
+            if (s1 == '(' && count > 1) {
+                res.push_back(s1);
+            }
+            if (s1 == ')')
+                count -= 1;
+
+            if (s1 == ')' && count > 0) {
+                res.push_back(s1);
+            }
+        }
+        return res;
+    }
+};
